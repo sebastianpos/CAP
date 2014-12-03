@@ -449,6 +449,8 @@ InstallGlobalFunction( ADDS_FOR_DEDUCTIVE_SYSTEM,
         
     end );
     
+    if INSTALL_FIBER_PRODUCT then
+    
     AddFiberProduct( deductive_system,
                  
       function( diagram )
@@ -494,6 +496,8 @@ InstallGlobalFunction( ADDS_FOR_DEDUCTIVE_SYSTEM,
         return DeductiveSystemMorphism( Source( source[ 1 ] ), "UniversalMorphismIntoPullback", [ diagram, source ], pullback );
         
     end );
+    
+    fi;
     
     AddPushout( deductive_system,
                 

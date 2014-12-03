@@ -66,6 +66,12 @@ DeclareOperation( "DeductiveSystemMorphism",
 DeclareOperation( "DeductiveSystemMorphism",
                   [ IsDeductiveSystemObject, IsDeductiveSystemObject ] );
 
+if not IsBound( INSTALL_FIBER_PRODUCT ) then
+  
+  INSTALL_FIBER_PRODUCT := true;
+  
+fi;
+
 #####################################
 ##
 ## Special Add

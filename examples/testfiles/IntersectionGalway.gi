@@ -1,3 +1,5 @@
+INSTALL_FIBER_PRODUCT := true;
+
 LoadPackage( "ModulePresentationsForHomalg" );
 
 LoadPackage( "RingsForHomalg" );
@@ -20,16 +22,6 @@ eps1 := PresentationMorphism( F, HomalgMatrix( [ [ 1 ] ], R ), I1 );
 
 eps2 := PresentationMorphism( F, HomalgMatrix( [ [ 1 ] ], R ), I2 );
 
-# F := InDeductiveSystem( F );
-# 
-# I1 := InDeductiveSystem( I1 );
-# 
-# I2 := InDeductiveSystem( I2 );
-# 
-# eps1 := InDeductiveSystem( eps1 );
-# 
-# eps2 := InDeductiveSystem( eps2 );
-
 ## Computation
 
 kernelemb1 := InDeductiveSystem( KernelEmb( eps1 ) );
@@ -42,4 +34,4 @@ pi1 := ProjectionInFactor( P, 1 );
 
 composite := PreCompose( pi1, kernelemb1 );
 
-# e := Eval( composite );
+PrintHistory( composite );
