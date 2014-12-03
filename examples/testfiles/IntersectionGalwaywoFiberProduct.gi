@@ -14,24 +14,20 @@ R := Q * "x,y";
 
 F := FreeLeftPresentation( 1, R );
 
-I1 := AsLeftPresentation( HomalgMatrix( [ [ "x" ] ], R ) );
+alpha1 := PresentationMorphism( F, HomalgMatrix( "[ [ x ] ]", R ), F );
 
-I2 := AsLeftPresentation( HomalgMatrix( [ [ "y" ] ], R ) );
-
-eps1 := PresentationMorphism( F, HomalgMatrix( [ [ 1 ] ], R ), I1 );
-
-eps2 := PresentationMorphism( F, HomalgMatrix( [ [ 1 ] ], R ), I2 );
+alpha2 := PresentationMorphism( F, HomalgMatrix( "[ [ y ] ]", R ), F );
 
 ## Computation
 
-kernelemb1 := InDeductiveSystem( KernelEmb( eps1 ) );
+alpha1 := InDeductiveSystem( alpha1 );
 
-kernelemb2 := InDeductiveSystem( KernelEmb( eps2 ) );
+alpha2 := InDeductiveSystem( alpha2 );
 
-P := FiberProduct( kernelemb1, kernelemb2 );
+P := FiberProduct( alpha1, alpha2 );
 
 pi1 := ProjectionInFactor( P, 1 );
 
-composite := PreCompose( pi1, kernelemb1 );
+composite := PreCompose( pi1, alpha1 );
 
 PrintHistory( composite );
