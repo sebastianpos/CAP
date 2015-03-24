@@ -379,7 +379,19 @@ InstallMethodWithCacheFromObject( PreCompose,
     
     new_source_aid := PreCompose( ProjectionInFactorOfPullback( pullback_diagram, 1 ), SourceAid( mor1 ) );
     
+    if IsEqualForObjectsDebug( DebugObject, Source( new_source_aid ) ) then
+        
+        Error( "equalforobjectsError" );
+        
+    fi;
+    
     new_associated := PreCompose( ProjectionInFactorOfPullback( pullback_diagram, 2 ), InjectionOfCofactorOfPushout( pushout_diagram, 1 ) );
+    
+    if not IsIdenticalObj( Source( new_source_aid ), Source( new_associated ) ) then
+        
+        Error( "error" );
+        
+    fi;
     
     new_range_aid := PreCompose( RangeAid( mor2 ), InjectionOfCofactorOfPushout( pushout_diagram, 2 ) );
     

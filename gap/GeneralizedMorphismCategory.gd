@@ -9,6 +9,10 @@
 ##
 #############################################################################
 
+DeclareGlobalVariable( "DebugObject" );
+
+DeclareGlobalFunction( "IsEqualForObjectsDebug" );
+
 DeclareCategory( "IsGeneralizedMorphismCategoryObject",
                  IsCapCategoryObject );
 

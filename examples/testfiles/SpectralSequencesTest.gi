@@ -11,6 +11,35 @@ R := QQ * "x,y";
 #! Q[x,y]
 SetRecursionTrapInterval( 10000 );
 category := LeftPresentations( R );
+
+V1 := AsLeftPresentation( HomalgMatrix( [ [ 1, 0, 0, 0, 0 ], [ 0, 1, 0, 0, 0 ], [ 0, 0, -1, "x", "-y" ] ], 3, 5, R ) );
+
+# V2 := FreeLeftPresentation( HomalgMatrix );
+
+# mor := PresentationMorphism( V1, HomalgMatrix( [ [ 0, 0 ], [ 0, 0 ], [ "-y", "x" ], [ 0, 1 ], [ 1, 0 ] ], 5, 2, R ), V2 );
+
+InstallValue( DebugObject, V1 );
+
+
+InstallGlobalFunction( IsEqualForObjectsDebug,
+      function( obj_1, obj_2 )#morphism_1, morphism_2 )
+#         local result_of_divide;
+        
+        return UnderlyingMatrix( obj_1 ) = UnderlyingMatrix( obj_2 );
+#         
+#         if ( UnderlyingMatrix( Source( morphism_1 ) ) <> UnderlyingMatrix( Source( morphism_2 ) ) )
+#           or ( UnderlyingMatrix( Range( morphism_1 ) ) <> UnderlyingMatrix( Range( morphism_2 ) ) ) then
+#           
+#           return false;
+#           
+#         fi;
+#         
+#         result_of_divide := DecideZeroRows( UnderlyingMatrix( morphism_1 ) - UnderlyingMatrix( morphism_2 ), UnderlyingMatrix( Range( morphism_1 ) ) );
+#         
+#         return IsZero( result_of_divide );
+#         
+    end );
+
 #! Category of left presentations of Q[x,y]
 S := FreeLeftPresentation( 1, R );
 #! <An object in the category Category of left presentations of Q[x,y]>
